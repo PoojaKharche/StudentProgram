@@ -1,0 +1,23 @@
+package student;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class StudentDelete {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException 
+	{
+
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		String url="jdbc:oracle:thin:@DESKTOP-U1OF0AB:1521:XE";
+		Connection con = DriverManager.getConnection(url, "hr","hr");
+		System.out.println("connected successfully .... ");
+		
+		Statement st= con.createStatement();
+
+	    int k=st.executeUpdate("Delete from  STUDENT where STUDENT_NO=202");
+		System.out.println(k+" rows deleted  ");
+		
+	}
+}
